@@ -1,0 +1,13 @@
+[Unit]
+Description = This script watches the state of GitLab CI runners and removes them on error state.
+
+[Service]
+ExecStart = /opt/ci_watch.rb -D
+Restart = always
+Type = forking
+PIDFile = /var/run/ci_watch.pid
+Environment = HOME=/root
+
+[Install]
+WantedBy = multi-user.target
+
